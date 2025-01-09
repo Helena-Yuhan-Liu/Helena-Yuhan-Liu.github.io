@@ -17,13 +17,25 @@
             color: white;
             padding: 10px 0;
         }
-        img {
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .content img {
             border-radius: 50%;
             width: 150px;
-            margin: 20px 0;
+            margin: 0 20px 20px 0;
         }
-        section {
-            padding: 20px;
+        .bio {
+            max-width: 600px;
+            text-align: left;
+        }
+        .links {
+            margin-top: 20px;
+            font-size: 1.2em;
         }
         a {
             color: #007BFF;
@@ -39,21 +51,25 @@
     <header>
         <h1>Helena (Yuhan) Liu</h1>
     </header>
-    <section>
+    <section class="content">
         <img src="ParcGorge.png" alt="Your Photo">
+        <div class="bio">
+            <p>
+                I completed my PhD in Applied Mathematics at the University of Washington in 2024 and am now a postdoc at Princeton University, working at the intersection of deep learning, computational neuroscience, and applied mathematics. I was named a 
+                <a href="https://risingstars.oden.utexas.edu/past-events/2024-workshop" target="_blank">2024 Rising Star in Computational and Data Sciences</a> 
+                as well as a 
+                <a href="https://risingstars-eecs.mit.edu/participants/yuhan-helena-liu/" target="_blank">2024 Rising Star in Electrical Engineering and Computer Sciences (EECS)</a>. 
+                My research leverages deep learning theory and recent neural recordings to explore how the brain learns to process information. This work has been supported by fellowships such as the NSERC PGS-D, FRQNT B2X, Pearson, and NSF AccelNet IN-BIC. I have published as the lead author in NeurIPS, ICLR, PNAS, and IEEE, focusing on biologically plausible learning models and their generalization properties. In addition to my theory-driven work, I use data-driven approaches to uncover learning strategies from animal data. I have also held visiting research roles at the Allen Institute, Mila, and MIT, and have taught and mentored extensively, earning a 
+                <a href="https://amath.washington.edu/news/2024/06/08/graduation-2024" target="_blank">departmental teaching award</a>.
+            </p>
+        </div>
+    </section>
+    <section class="links">
         <p>
-    		I completed my PhD in Applied Mathematics at the University of Washington in 2024 and am now a postdoc at Princeton University, working at the intersection of deep learning, computational neuroscience, and applied mathematics. I was named a 
-		<a href="https://risingstars.oden.utexas.edu/past-events/2024-workshop" target="_blank">2024 Rising Star in Computational and Data Sciences</a> 
-		as well as a 
-		<a href="https://risingstars-eecs.mit.edu/participants/yuhan-helena-liu/" target="_blank">2024 Rising Star in Electrical Engineering and Computer Sciences (EECS)</a>. 
-		My research leverages deep learning theory and recent neural recordings to explore how the brain learns to process information. This work has been supported by fellowships such as the NSERC PGS-D, FRQNT B2X, Pearson, and NSF AccelNet IN-BIC. I have published as the lead author in NeurIPS, ICLR, PNAS, and IEEE, focusing on biologically plausible learning models and their generalization properties. In addition to my theory-driven work, I use data-driven approaches to uncover learning strategies from animal data. I have also held visiting research roles at the Allen Institute, Mila, and MIT, and have taught and mentored extensively, earning a 
-		<a href="https://amath.washington.edu/news/2024/06/08/graduation-2024" target="_blank">departmental teaching award</a>.
-</p>
-        <p style="font-size: 1.2em;">
-		<a href="CV_HelenaLiu.pdf" target="_blank">CV</a> | 
-		<a href="https://scholar.google.com/citations?user=hP3kxJQAAAAJ&hl=en" target="_blank">Google Scholar</a> | 
-		<a href="https://x.com/helena_liu24" target="_blank">Twitter/X</a>
-</p>
+            <a href="CV_HelenaLiu.pdf" target="_blank">CV</a> | 
+            <a href="https://scholar.google.com/citations?user=hP3kxJQAAAAJ&hl=en" target="_blank">Google Scholar</a> | 
+            <a href="https://x.com/helena_liu24" target="_blank">Twitter/X</a>
+        </p>
     </section>
 </body>
-</html> 
+</html>
