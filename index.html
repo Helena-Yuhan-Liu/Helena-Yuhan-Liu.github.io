@@ -89,10 +89,8 @@
     .join-callout { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 1.06rem; line-height: 1.55; }
     .join-callout p {margin: 0 0 12px;}
     .join-callout p:last-child {margin-bottom: 0;}
-    .join-actions { display: flex; align-items: center; gap: 24px; margin-top: 22px; }
-    .button { display: inline-flex; min-height: 44px; align-items: center; padding: 9px 18px; border-radius: 3px; font-size: .88rem; font-weight: 700; }
-    .button-light { color: var(--deep); background: #fff; }
-    .text-link-light { padding-bottom: 2px; color: #fff; border-bottom: 1px solid #6ba7b4; font-size: .88rem; font-weight: 700; }
+    .inline-link-light {color: #fff;font-weight: 700;text-decoration: underline;text-decoration-color: #6ba7b4;text-underline-offset: 3px;}
+    .inline-link-light:hover {text-decoration-color: #fff;}
     .bio-layout { display: grid; grid-template-columns: 160px minmax(0,1fr); gap: 30px; align-items: start; }
     .portrait { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; background: var(--mist); border-radius: 3px; filter: saturate(.92); }
     .bio-layout p { margin: 0 0 13px; color: #3f4f58; }
@@ -210,11 +208,13 @@
   	<p><strong>Whether your background is in computer science, engineering, statistics, mathematics, physics, neuroscience, or psychology, you are welcome to apply.</strong></p>
 	  </div>
           <p>I will be recruiting students who are curious, creative, and motivated, with the persistence to carry projects through. Some experience with scientific programming (ideally in Python) is expected, while familiarity with linear algebra, probability, or statistics would be helpful. Prior training in neuroscience or psychology is <strong> not</strong> required.</p>
-          <p>Interested students are encouraged to email me with their CV and a brief description of their research experience and interests. To be considered for graduate admission, students must also submit a formal application to the University of Toronto Psychology graduate program by the program’s application deadline.</p>
-          <div class="join-actions">
-            <a class="button button-light" href="mailto:hl7582@princeton.edu?subject=Prospective%20student%20inquiry">Email Helena</a>
-            <a class="text-link-light" href="https://www.psych.utoronto.ca/prospective-graduate-students/application-information" target="_blank" rel="noreferrer">Application information ↗</a>
-          </div>
+          <p>
+  		Interested students are encouraged to <a class="inline-link-light" href="mailto:hl7582@princeton.edu?subject=Prospective%20student%20inquiry">email me</a> with their CV and a brief description of their research experience and interests. To be considered for graduate admission, students must also submit a formal application to the University of Toronto Psychology <a
+    class="inline-link-light"
+    href="https://www.psych.utoronto.ca/prospective-graduate-students/application-information"
+    target="_blank"
+    rel="noreferrer">graduate program</a> by the program’s application deadline.
+		</p>
         </div>
       </div>
     </section>
