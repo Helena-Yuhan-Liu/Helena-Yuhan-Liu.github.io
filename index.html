@@ -73,7 +73,7 @@
     .section-content { min-width: 0; }
     h2 { margin: 0 0 20px; color: var(--deep); font: 400 clamp(1.65rem,3vw,2.2rem)/1.12 Georgia,serif; letter-spacing: -.025em; }
     .section-content > p { max-width: 880px; margin: 0 0 15px; color: #3f4f58; }
-    .lead-question { color: var(--ink)!important; font: clamp(1.1rem,2.2vw,1.2rem)/1.38 Georgia,serif; }
+    .lead-question { color: var(--ink)!important; font: clamp(1.2rem,2.2vw,1.3rem)/1.38 Georgia,serif; }
     .research-section h3 { margin: 30px 0 10px; color: var(--navy); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; }
     .project-list { margin: 0; padding: 0; list-style: none; counter-reset: projects; border-top: 1px solid var(--line); }
     .project-list li { counter-increment: projects; padding: 9px 0; color: #3f4f58; border-bottom: 1px solid var(--line); }
@@ -88,6 +88,8 @@
     .join-copy p { margin: 0 0 14px; color: #d7e6ea; }
     .join-copy strong { color: #fff; }
     .join-callout { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 1.06rem; line-height: 1.55; }
+    .join-callout p {margin: 0 0 12px;}
+    .join-callout p:last-child {margin-bottom: 0;}
     .join-actions { display: flex; align-items: center; gap: 24px; margin-top: 22px; }
     .button { display: inline-flex; min-height: 44px; align-items: center; padding: 9px 18px; border-radius: 3px; font-size: .88rem; font-weight: 700; }
     .button-light { color: var(--deep); background: #fff; }
@@ -204,8 +206,10 @@
       <div class="join-inner">
         <div><p class="join-status">Recruiting graduate and undergraduate students</p><h2>Join Us</h2></div>
         <div class="join-copy">
-          <p><strong>Interested in machine learning and computational neuroscience? </strong></p>
-	  <p class="join-callout"><strong>Whether your background is in computer science, engineering, statistics, mathematics, physics, neuroscience, or psychology, you are welcome to apply.</strong></p>
+          <div class="join-callout">
+  	<p><strong>Interested in machine learning and computational neuroscience?</strong></p>
+  	<p><strong>Whether your background is in computer science, engineering, statistics, mathematics, physics, neuroscience, or psychology, you are welcome to apply.</strong></p>
+	  </div>
           <p>I will be recruiting students who are curious, creative, and motivated, with the persistence to carry projects through. Some experience with scientific programming (ideally in Python) is expected, while familiarity with linear algebra, probability, or statistics would be helpful. Prior training in neuroscience or psychology is <strong> not</strong> required.</p>
           <p>Interested students are encouraged to email me with their CV and a brief description of their research experience and interests. To be considered for graduate admission, students must also submit a formal application to the University of Toronto Psychology graduate program by the program’s application deadline.</p>
           <div class="join-actions">
