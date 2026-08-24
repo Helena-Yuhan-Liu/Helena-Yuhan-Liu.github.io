@@ -1,158 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Y. Helena Liu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f9f9f9;
-	    color: #333;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-        }
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin: 20px;
-        }
-        .content img {
-            border-radius: 50%;
-            width: 150px;
-            margin: 0 20px 20px 0;
-        }
-        .bio {
-            max-width: 600px;
-            text-align: left;
-        }
-        .links {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-        a {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-	.news h2 {
-    		margin-top: 40px;
-		}
-	.news td:first-child {
-    		color: #555; /* Lighter for the date column only */
-		}
-    </style>
-
-    <!-- Schema.org Structured Data for Google Knowledge Graph -->
-    <script type="application/ld+json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Y. Helena Liu studies computational principles of learning in biological and artificial neural systems.">
+  <meta property="og:title" content="Y. Helena Liu | NeuroAI and Computational Neuroscience">
+  <meta property="og:description" content="Computational principles of learning in biological and artificial neural systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://helena-yuhan-liu.github.io/">
+  <meta property="og:image" content="https://helena-yuhan-liu.github.io/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Y. Helena Liu | NeuroAI and Computational Neuroscience</title>
+  <style>
+    :root {
+      --ink: #162631; --navy: #0f4666; --deep: #083349; --teal: #287b8f;
+      --mist: #eef5f6; --paper: #fbfbf9; --white: #fff; --line: #dbe4e6;
+      --muted: #5a6972; --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font: 16px/1.62 Arial, Helvetica, sans-serif; text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #65b7c8; outline-offset: 4px; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20; display: flex; align-items: center;
+      justify-content: space-between; min-height: 62px;
+      padding: 0 max(28px, calc((100vw - var(--max)) / 2));
+      background: rgba(251,251,249,.94); border-bottom: 1px solid rgba(15,70,102,.12);
+      backdrop-filter: blur(12px);
+    }
+    .wordmark { color: var(--deep); font-size: 1.05rem; font-weight: 700; }
+    nav { display: flex; align-items: center; gap: 26px; color: #465760; font-size: .88rem; font-weight: 600; }
+    nav a:hover { color: var(--navy); }
+    .nav-cta { padding: 8px 14px; color: #fff; background: var(--navy); border-radius: 3px; }
+    nav .nav-cta:hover { color: #fff; background: var(--deep); }
+    .hero {
+      display: grid; min-height: 330px; place-items: center; padding: 48px 28px 52px;
+      background:
+        linear-gradient(90deg,transparent 49.9%,rgba(15,70,102,.055) 50%,transparent 50.1%),
+        linear-gradient(rgba(15,70,102,.038) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(15,70,102,.038) 1px,transparent 1px), #fff;
+      background-size: 100% 100%,72px 72px,72px 72px,auto;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner { width: min(100%,900px); text-align: center; }
+    .eyebrow,.join-status {
+      margin: 0 0 12px; color: var(--teal); font-size: .76rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+    }
+    .hero h1 {
+      margin: 0; color: var(--deep); font: 400 clamp(3.2rem,7vw,5.4rem)/.98 Georgia,serif;
+      letter-spacing: -.055em;
+    }
+    .hero-fields {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 7px 0;
+      margin: 22px auto 0; color: var(--navy); font-size: clamp(.86rem,1.8vw,1.02rem);
+      font-weight: 600; letter-spacing: .055em; text-transform: uppercase;
+    }
+    .hero-fields span:not(:last-child)::after { content: "·"; padding: 0 12px; color: #7ba8b3; }
+    .appointment { margin: 14px auto 0; color: var(--muted); font-size: .98rem; }
+    .hero-links { display: flex; justify-content: center; gap: 24px; margin-top: 18px; color: var(--navy); font-size: .9rem; font-weight: 700; }
+    .hero-links a { padding-bottom: 2px; border-bottom: 1px solid #8fb6bf; }
+    .section {
+      display: grid; grid-template-columns: 46px minmax(0,1fr); gap: 18px;
+      width: min(calc(100% - 56px),var(--max)); margin: 0 auto; padding: 52px 0;
+    }
+    .section + .section { border-top: 1px solid var(--line); }
+    .section-label { padding-top: 8px; color: #8ca0a8; font: .9rem Georgia,serif; }
+    .section-content { min-width: 0; }
+    h2 { margin: 0 0 20px; color: var(--deep); font: 400 clamp(1.65rem,3vw,2.2rem)/1.12 Georgia,serif; letter-spacing: -.025em; }
+    .section-content > p { max-width: 880px; margin: 0 0 15px; color: #3f4f58; }
+    .lead-question { color: var(--ink)!important; font: clamp(1.1rem,2.2vw,1.2rem)/1.38 Georgia,serif; }
+    .research-section h3 { margin: 30px 0 10px; color: var(--navy); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; }
+    .project-list { margin: 0; padding: 0; list-style: none; counter-reset: projects; border-top: 1px solid var(--line); }
+    .project-list li { counter-increment: projects; padding: 9px 0; color: #3f4f58; border-bottom: 1px solid var(--line); }
+    .project-list li::before { content: "0" counter(projects); display: inline-block; width: 38px; color: var(--teal); font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+    .keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; }
+    .keywords strong { margin-right: 5px; color: var(--deep); letter-spacing: .1em; text-transform: uppercase; }
+    .keywords span { padding: 5px 10px; background: var(--mist); border-radius: 3px; }
+    .join-section { padding: 52px 28px; color: #eaf4f6; background: var(--deep); }
+    .join-inner { display: grid; grid-template-columns: minmax(180px,.55fr) minmax(0,1.45fr); gap: 48px; width: min(100%,var(--max)); margin: 0 auto; }
+    .join-section h2 { margin-bottom: 0; color: #fff; }
+    .join-status { color: #85c7d3; }
+    .join-copy p { margin: 0 0 14px; color: #d7e6ea; }
+    .join-copy strong { color: #fff; }
+    .join-callout { padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 1.06rem; line-height: 1.55; }
+    .join-actions { display: flex; align-items: center; gap: 24px; margin-top: 22px; }
+    .button { display: inline-flex; min-height: 44px; align-items: center; padding: 9px 18px; border-radius: 3px; font-size: .88rem; font-weight: 700; }
+    .button-light { color: var(--deep); background: #fff; }
+    .text-link-light { padding-bottom: 2px; color: #fff; border-bottom: 1px solid #6ba7b4; font-size: .88rem; font-weight: 700; }
+    .bio-layout { display: grid; grid-template-columns: 160px minmax(0,1fr); gap: 30px; align-items: start; }
+    .portrait { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; background: var(--mist); border-radius: 3px; filter: saturate(.92); }
+    .bio-layout p { margin: 0 0 13px; color: #3f4f58; }
+    .mentee-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .mentee-list li { padding: 11px 0; color: #465760; border-bottom: 1px solid var(--line); }
+    .mentee-list strong { color: var(--deep); font-weight: 700; }
+    .mentee-list span { color: #718087; font-size: .82rem; }
+    footer { display: flex; justify-content: space-between; width: min(calc(100% - 56px),var(--max)); margin: 0 auto; padding: 30px 0 42px; color: #738087; border-top: 1px solid var(--line); font-size: .8rem; }
+    footer p { margin: 0; } footer a { color: var(--navy); }
+    @media (max-width:800px) {
+      .site-header { min-height: 56px; padding: 0 20px; } nav a:not(.nav-cta) { display:none; }
+      .hero { min-height:300px; padding:42px 22px 46px; }
+      .section { grid-template-columns:1fr; gap:8px; width:min(calc(100% - 40px),var(--max)); padding:42px 0; }
+      .section-label { padding-top:0; }
+      .join-inner { grid-template-columns:1fr; gap:18px; }
+      .bio-layout { grid-template-columns:125px minmax(0,1fr); gap:22px; }
+    }
+    @media (max-width:560px) {
+      body { font-size:15px; } .hero-fields { display:grid; gap:6px; }
+      .hero-fields span::after { display:none; } .appointment span { display:none; }
+      .join-section { padding:46px 20px; } .join-actions { align-items:flex-start; flex-direction:column; }
+      .bio-layout { grid-template-columns:1fr; } .portrait { width:min(62vw,220px); }
+      footer { align-items:flex-start; flex-direction:column; gap:8px; width:calc(100% - 40px); }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Y. Helena Liu",
-      "alternateName": ["Helena Liu", "Yuhan Liu", "Helena Yuhan Liu", "Yuhan Helena Liu", "Helena (Yuhan) Liu"],
+      "alternateName": ["Helena Liu", "Yuhan Liu", "Helena Yuhan Liu", "Yuhan Helena Liu"],
       "url": "https://helena-yuhan-liu.github.io/",
       "sameAs": [
         "https://www.wikidata.org/wiki/Q140775475",
         "https://orcid.org/0000-0001-7269-8338",
         "https://scholar.google.com/citations?user=hP3kxJQAAAAJ",
-	"https://datascience.stanford.edu/people/yuhan-helena-liu",
-	"https://risingstars-eecs.mit.edu/participants/yuhan-helena-liu/",
-	"https://pni.princeton.edu/people/yuhan-helena-liu",
         "https://www.linkedin.com/in/helena-yuhan-liu-38b8b871",
-	"https://amath.washington.edu/people/helena-liu",
-        "https://x.com/helena_liu24",
-        "https://csml.princeton.edu/people/helena-liu"
+        "https://x.com/helena_liu24"
       ],
-      "jobTitle": "Postdoctoral Researcher / Incoming Assistant Professor",
-  	"worksFor": [
-    	{
-      		"@type": "EducationalOrganization",
-      		"name": "Princeton University"
-    	},
-    	{
-      		"@type": "EducationalOrganization",
-      		"name": "University of Toronto"
-    	}],
+      "jobTitle": "Postdoctoral Researcher and Incoming Assistant Professor",
+      "worksFor": [
+        {"@type": "EducationalOrganization", "name": "Princeton University"},
+        {"@type": "EducationalOrganization", "name": "University of Toronto"}
+      ]
     }
-    </script>
+  </script>
 </head>
 <body>
-    <header>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Y. Helena Liu, home">Y. Helena Liu</a>
+    <nav aria-label="Main navigation">
+      <a href="#research">Research</a><a href="#bio">Bio</a><a href="#mentoring">Mentoring</a>
+      <a class="nav-cta" href="#join">Join Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <p class="eyebrow">Computational principles of learning</p>
         <h1>Y. Helena Liu</h1>
-    </header>
-    <section class="content">
-    <img src="ProfilePhoto.png" alt="Your Photo">
-    <div class="bio">
-<p> 
-    <strong>Incoming Assistant Professor</strong>, University of Toronto (starting January 2027)  
-</p>
-        <p>
-    I am currently a postdoctoral researcher at <a href="https://csml.princeton.edu/people/helena-liu" target="_blank">Princeton University</a>, mentored by Dr. Jonathan Pillow. I completed my PhD in Applied Mathematics at the <a href="https://amath.washington.edu/people/helena-liu" target="_blank">University of Washington</a>, advised by Dr. Eric Shea-Brown. I have also held visiting research roles at Mila – AI Institute (with Dr. Guillaume Lajoie), MIT (with Drs. Robert Yang and Chris Cueva), and the Allen Institute (with Drs. Uygar Sümbül, Stefan Mihalas, and Stephen Smith).
-</p>
-<p>
-    I study learning in brains and machines, bridging AI/ML theory and neuroscience. My work develops theory-driven and data-driven models that connect neural and behavioral data to uncover how the brain learns and makes choices. More broadly, my vision is to advance AI/ML, psychology, and neuroscience by identifying general principles of efficient and robust learning, while informing technology and health. 
-</p>
-
-<p> 
-	<strong>Keywords:</strong> NeuroAI, AI4Science, computational neuroscience, deep learning theory, decision-making, learning dynamics 
-</p> 
-
-<p>
-    I was named a <a href="https://risingstars-eecs.mit.edu/participants/yuhan-helena-liu/" target="_blank">2024 Rising Star in EECS</a> (area: AI for Healthcare and Life Sciences) and a <a href="https://risingstars.oden.utexas.edu/past-events/2024-workshop" target="_blank">2024 Rising Star in Computational and Data Sciences</a>. I have published as the first author in NeurIPS, ICLR, ICML, PNAS, and IEEE, and my work has been supported by fellowships such as the NSERC PGS-D, FRQNT B2X, Pearson, and NSF AccelNet IN-BIC. I have also taught and mentored extensively, earning a <a href="https://amath.washington.edu/news/2024/06/08/graduation-2024" target="_blank">departmental teaching award</a>.
-</p>
-    </div>
+        <p class="hero-fields"><span>NeuroAI</span><span>Machine Learning</span><span>Computational Neuroscience</span><span>Mathematical Modeling</span></p>
+        <p class="appointment">Incoming Assistant Professor, University of Toronto <span aria-hidden="true">·</span> January 2027</p>
+        <div class="hero-links" aria-label="Profile links">
+          <a href="CV_HelenaLiu.pdf" target="_blank" rel="noreferrer">CV</a>
+          <a href="https://scholar.google.com/citations?user=hP3kxJQAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://x.com/helena_liu24" target="_blank" rel="noreferrer">Twitter/X</a>
+        </div>
+      </div>
     </section>
 
-    <section class="links">
-        <p>
-            <a href="CV_HelenaLiu.pdf" target="_blank">CV</a> | 
-            <a href="https://scholar.google.com/citations?user=hP3kxJQAAAAJ&hl=en" target="_blank">Google Scholar</a> | 
-            <a href="https://x.com/helena_liu24" target="_blank">Twitter/X</a>
-        </p>
+
+    <section class="section research-section" id="research">
+      <div class="section-label"> </div>
+      <div class="section-content">
+        <h2>Research Interests</h2>
+        <p class="lead-question">How do brains and artificial neural networks learn from experience, connect outcomes to relevant past events, and generalize to new situations?</p>
+        <p><strong>We study the computational principles of learning in biological and artificial neural systems.</strong> We develop theory-driven and data-driven models that connect synaptic plasticity, neural circuit dynamics, and trial-by-trial behavior. Our approach combines neural-network modeling, machine learning, mathematical analysis, and statistical inference from high-dimensional neural and behavioral data. By studying these systems together, we aim to uncover how neural circuits learn and make decisions, and which learning principles are shared across brains and AI.</p>
+        <h3>Ongoing projects</h3>
+        <ol class="project-list">
+          <li>Biologically grounded neural-network learning</li>
+          <li>Mathematical theory of learning and generalization</li>
+          <li>Characterizing learning rules from neural and behavioral data</li>
+        </ol>
+        <div class="keywords" aria-label="Research keywords">
+          <strong>Keywords</strong><span>NeuroAI</span><span>machine learning</span><span>computational neuroscience</span><span>biologically grounded learning</span><span>learning dynamics</span><span>decision-making</span><span>neural networks</span><span>dynamical systems</span><span>neural data science</span>
+        </div>
+      </div>
     </section>
 
-<section class="news">
-  <h2>News</h2>
-  <table style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6; font-size: 1em; border-spacing: 0;">
-    <tr><td style="padding-right: 20px;"><strong>Dec 2025</strong></td><td>Attended NeurIPS 2025</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Dec 2025</strong></td><td>Delivered a talk at the University of Toronto</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Oct 2025</strong></td><td>Attended Rising Stars in Engineering in Health</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Sep 2025</strong></td><td>Delivered a talk at the PNI seminar series</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Sep 2025</strong></td><td>First-authored paper accepted to NeurIPS 2025</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Sep 2025</strong></td><td>Selected as a 2025 Rising Star in Data Science</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Aug 2025</strong></td><td>Selected as a 2025 Rising Star in Engineering in Health</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Jun 2025</strong></td><td>Oral at SAND Workshop 2025</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>May 2025</strong></td><td>First-authored paper accepted to ICML 2025</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Mar 2025</strong></td><td>Undergraduate mentees' co-first-authored paper featured at AAAI AI2ASE</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Dec 2024</strong></td><td>Invited talk at Princeton CSML</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Oct 2024</strong></td><td>Attended EECS Rising Stars workshop at MIT</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Aug 2024</strong></td><td>Began postdoc at Princeton</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Jun 2024</strong></td><td>Undergraduate mentee presented first-authored work at NIH BRAIN Initiative Conference</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Jun 2024</strong></td><td>Received departmental teaching award at UW Applied Math</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Jun 2024</strong></td><td>Successfully defended PhD</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>May 2024</strong></td><td>Attended Rising Stars in Computational and Data Sciences workshop at UT Austin</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Apr 2024</strong></td><td>Awarded FRQNT Postdoctoral Fellowship (ranked 1st in category)</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Mar 2024</strong></td><td>Received a final course evaluation score of 4.9/5 in AMATH 342 (as instructor of record)</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Mar 2024</strong></td><td>Co-organized COSYNE Workshop: "The Geometry & Dynamics of Learning"</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Feb 2024</strong></td><td>Awarded NSERC PDF (declined offer)</td></tr>
-    <tr><td style="padding-right: 20px;"><strong>Jan 2024</strong></td><td>First-authored paper accepted to ICLR 2024</td></tr>
-  </table>
-</section>
+
+    <section class="section bio-section" id="bio">
+      <div class="section-label"> </div>
+      <div class="section-content">
+        <h2>About</h2>
+        <div class="bio-layout">
+          <img class="portrait" src="ProfilePhoto.png" alt="Y. Helena Liu">
+          <div>
+            <p>My full name is Yuhan Helena Liu, but I go by Helena. In January 2027, I will return to the University of Toronto, my alma mater, as an Assistant Professor in the Department of Psychology, specializing in AI for Psychological Sciences. I am currently a postdoctoral researcher at the Princeton Neuroscience Institute and Princeton's Center for Statistics and Machine Learning, working with Jonathan Pillow.</p>
+            <p>I received my PhD in Applied Mathematics from the University of Washington, where I was advised by Eric Shea-Brown and focused on computational neuroscience and NeuroAI. Before that, I completed my undergraduate training in Engineering Science and my master's degree at the University of Toronto. I have also held visiting research positions at Mila, MIT, and the Allen Institute.</p>
+            <p>My research has been recognized through national fellowships, invited talks, and four Rising Stars distinctions spanning EECS, data science, computational science, and engineering in health. My first-author work has appeared in PNAS, NeurIPS, ICLR, and ICML. I am also deeply committed to teaching and mentorship and received a departmental teaching award during my PhD.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-<footer style="margin-top: 40px; padding: 15px; background-color: #eee; font-size: 0.9em;">
-    © 2026 Helena (Yuhan) Liu
-</footer>
+    <section class="join-section" id="join">
+      <div class="join-inner">
+        <div><p class="join-status">Recruiting graduate and undergraduate students</p><h2>Join Us</h2></div>
+        <div class="join-copy">
+          <p><strong>Interested in machine learning and computational neuroscience? </strong></p>
+	  <p class="join-callout"><strong>Whether your background is in computer science, engineering, statistics, mathematics, physics, neuroscience, or psychology, you are welcome to apply.</strong></p>
+          <p>I will be recruiting students who are curious, creative, and motivated, with the persistence to carry projects through. Some experience with scientific programming (ideally in Python) is expected, while familiarity with linear algebra, probability, or statistics would be helpful. Prior training in neuroscience or psychology is <strong> not</strong> required.</p>
+          <p>Interested students are encouraged to email me with their CV and a brief description of their research experience and interests. To be considered for graduate admission, students must submit a formal application to the University of Toronto Psychology graduate program by December 1.</p>
+          <div class="join-actions">
+            <a class="button button-light" href="mailto:hl7582@princeton.edu?subject=Prospective%20student%20inquiry">Email Helena</a>
+            <a class="text-link-light" href="https://www.psych.utoronto.ca/prospective-graduate-students/application-information" target="_blank" rel="noreferrer">Application information ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mentoring-section" id="mentoring">
+      <div class="section-label"></div>
+      <div class="section-content">
+        <h2>Former Mentees</h2>
+        <ul class="mentee-list">
+          <li><strong>Hanson Mo:</strong> Physics undergraduate; now a PhD student at Brown University. <span>Paper: H. H. Mo, Y. H. Liu, E. Shea-Brown, and S. Mihalas (manuscript in preparation, 2026).</span></li>
+          <li><strong>Weixuan Liu:</strong> Computer Science undergraduate; now a graduate student at Carnegie Mellon University. <span>Paper: W. Liu, X. Zhang, and Y. H. Liu (AAAI AI2ASE, 2025).</span></li>
+          <li><strong>Xinyue Zhang:</strong> Mathematics undergraduate; now a graduate student at Columbia University. <span>Paper: W. Liu, X. Zhang, and Y. H. Liu (AAAI AI2ASE, 2025).</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2026 Y. Helena Liu</p><a href="mailto:hl7582@princeton.edu">hl7582@princeton.edu</a></footer>
 </body>
 </html>
