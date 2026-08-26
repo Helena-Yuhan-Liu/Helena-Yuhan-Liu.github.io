@@ -73,8 +73,11 @@
     h2 { margin: 0 0 20px; color: var(--deep); font: 400 clamp(1.65rem,3vw,2.2rem)/1.12 Georgia,serif; letter-spacing: -.025em; }
     .section-content > p { max-width: 880px; margin: 0 0 15px; color: #3f4f58; }
     .lead-question { color: var(--ink)!important; font: clamp(1.2rem,2.2vw,1.3rem)/1.38 Georgia,serif; }
-    .research-section h3 { margin: 30px 0 10px; color: var(--navy); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; }
+    .research-section h3 { margin: 30px 0 10px; color: var(--navy); font-size: .96rem; letter-spacing: .16em; text-transform: uppercase; }
     .project-list { margin: 0; padding: 0; list-style: none; counter-reset: projects; border-top: 1px solid var(--line); }
+    .project-list li:last-child {border-bottom: none;}
+    .project-paper {display: block;margin-top: 4px;color: var(--muted);font-size: 0.88rem;}
+    .project-paper a {color: var(--navy);text-decoration: underline;text-underline-offset: 2px;}
     .project-list li { counter-increment: projects; padding: 9px 0; color: #3f4f58; border-bottom: 1px solid var(--line); }
     .project-list li::before { content: "0" counter(projects); display: inline-block; width: 38px; color: var(--teal); font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
     .keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; }
@@ -96,6 +99,7 @@
     .bio-layout p { margin: 0 0 13px; color: #3f4f58; }
     .mentee-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
     .mentee-list li { padding: 11px 0; color: #465760; border-bottom: 1px solid var(--line); }
+    .mentee-list li:last-child {border-bottom: none;}
     .mentee-list strong { color: var(--deep); font-weight: 700; }
     .mentee-list span { color: #718087; font-size: .9rem; }
     footer { display: flex; justify-content: space-between; width: min(calc(100% - 56px),var(--max)); margin: 0 auto; padding: 30px 0 42px; color: #738087; border-top: 1px solid var(--line); font-size: .8rem; }
@@ -168,18 +172,58 @@
       <div class="section-label"> </div>
       <div class="section-content">
         <h2>Research Interests</h2>
-        <p class="lead-question">How do brains and artificial neural networks learn from experience, connect outcomes to relevant past events, and generalize to new situations?</p>
-        <p><strong>We study the computational principles of learning in biological and artificial neural systems.</strong> Our approach combines neural-network modeling, machine learning, mathematical analysis, and the analysis of high-dimensional neural and behavioral data. Using these methods, we develop theory-driven and data-driven models that connect synaptic plasticity, neural circuit dynamics, and trial-by-trial behavior. By studying these systems together, we aim to uncover how neural circuits learn and make decisions, and which learning principles are shared across brains and AI.</p>
-        <h3>Ongoing projects</h3>
-        <ol class="project-list">
-          <li>Biologically grounded neural-network learning</li>
-          <li>Mathematical theory of learning and generalization</li>
-          <li>Characterizing learning rules from neural and behavioral data</li>
-        </ol>
-        <div class="keywords" aria-label="Research keywords">
-          <strong>Keywords</strong><span>NeuroAI</span><span>machine learning</span><span>computational neuroscience</span><span>biologically grounded AI</span><span>learning dynamics</span><span>decision-making</span><span>neural networks</span><span>dynamical systems</span><span>neural data science</span>
-        </div>
-      </div>
+        <p class="lead-question">
+  How do brains and artificial neural networks learn from experience, connect
+  outcomes to relevant past events, and generalize to new situations?
+</p>
+
+<p>
+  <strong>
+    We study the computational principles of learning in biological and
+    artificial neural systems.
+  </strong>
+  Learning poses a difficult <strong>credit-assignment problem</strong>: when an outcome arrives, the brain must determine which earlier events, actions, and neural activity contributed to it. It must also extract knowledge that <strong>generalizes beyond past experience</strong>. Understanding how biological systems solve these problems could reveal mechanisms of adaptive behavior, inspire new principles for <strong>biologically grounded AI</strong>, and may ultimately inform efforts to understand and treat learning impairments in neurodegenerative diseases. Across our research, we combine theory-driven and data-driven approaches to connect learning mechanisms across synapses, neural circuits, and behavior.
+</p>
+
+<h3>Ongoing projects</h3>
+
+<ol class="project-list">
+  <li>
+    <strong>Biologically grounded neural-network learning.</strong>
+    Using mechanistic neural-network models, we study how biological ingredients, such as synaptic plasticity, neuromodulation, and cell-type-specific connectivity, support credit assignment across time.
+    <span class="project-paper">
+      Related paper:
+      <a href="https://www.pnas.org/doi/10.1073/pnas.2111821118" target="_blank" rel="noreferrer">
+        Cell-type-specific neuromodulation guides synaptic credit assignment in a spiking neural network
+      </a>
+      (PNAS, 2021)
+    </span>
+  </li>
+
+  <li>
+    <strong>Mathematical theory of learning and generalization.</strong>
+    We combine mathematical analysis with neural-network simulations to understand how learning rules, architecture, and experience shape feature learning, representations, and generalization.
+    <span class="project-paper">
+      Related paper:
+      <a href="https://openreview.net/pdf?id=slSmYGc8ee" target="_blank" rel="noreferrer">
+        How connectivity structure shapes rich and lazy learning in neural circuits
+      </a>
+      (ICLR, 2024)
+    </span>
+  </li>
+
+  <li>
+    <strong>Characterizing learning rules from neural and behavioral data.</strong>
+    We develop machine-learning methods to characterize and distinguish candidate learning mechanisms using trial-by-trial behavioral data, high-dimensional neural data, or both.
+    <span class="project-paper">
+      Related paper:
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/0cd8b883d2e5a2421d0525ca0dbd19b3-Abstract-Conference.html" target="_blank" rel="noreferrer">
+        Flexible inference for animal learning rules using neural networks
+      </a>
+      (NeurIPS, 2025)
+    </span>
+  </li>
+</ol>
     </section>
 
 
